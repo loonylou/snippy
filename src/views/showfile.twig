@@ -1,0 +1,39 @@
+{% extends 'bootstrap.twig' %}
+
+{% block main_container %}
+
+		<div class="col-md-8">
+			<canvas id="canvas" width="{{width}}" height="{{height}}" style="border:1px solid #d3d3d3;">
+			Your browser does not support the HTML5 canvas tag.
+			</canvas>
+
+		</div><!--col md 8-->
+		
+		<div class="col-md-4">
+			<h3>Image Details</h2>
+			<p>Filename: {{ userimagename }}</p>
+			<p>Width: {{ width }} </p>
+			<p>Height: {{ height }} </p>
+			<p>Extension: {{ ext }} </p>
+				
+		<div id="snippycalc">
+			<p>Suggested Snips: {{ snips }}</p>
+
+		<a class="btn btn-default" href="/snip?ext={{ ext }}&snips={{ snips }}">Snip It!</a>
+		
+		</div><!--snippycalc-->
+		
+		</div><!--/.col md 4-->
+		
+		<script>
+		window.onload=function draw() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			var img = new Image();
+			img.onload = function(){
+			ctx.drawImage(img,0,0);
+			};
+		img.src = '../uploads/snipme.{{ ext  }}';
+		}	
+		</script>
+			
+{% endblock %}
