@@ -1,0 +1,16 @@
+{% extends 'bootstrap.twig' %}
+
+{% block main_container %}
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>SNIPPY - Teachbeag Dev Inc.</h1>
+        <p>This is the development version of a screenshot preparation tool to be used with A4 documents.</p>
+
+		<form action="" method="post" enctype="multipart/form-data">
+			{{ form_widget(form) }}
+			<input type="submit" name="fileup" />
+		</form>
+		
+      </div>
+
+{% endblock %}
